@@ -21,10 +21,11 @@ public class Weapon : MonoBehaviour
         {
             if (_weaponParameters.Bullet == null)
                 return;
-            Bullet newBullet = Instantiate(_weaponParameters.Bullet, _posAttack.transform.position, _posAttack.transform.rotation);
 
+            Bullet newBullet = Instantiate(_weaponParameters.Bullet, _posAttack.transform.position, _posAttack.transform.rotation);
             newBullet.Speed = _weaponParameters.AttackSpeed;
             newBullet.Damage = _weaponParameters.AttackDamage;
+
             TimerBulletDelay = _weaponParameters.AttackDelay;
             _audioSource.PlayOneShot(_audioSource.clip);
         }

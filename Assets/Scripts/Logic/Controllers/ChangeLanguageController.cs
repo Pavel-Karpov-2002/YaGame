@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ChangeLanguageController : Singleton<ChangeLanguageController>
 {
+    private const int RuIDLanguage = 0;
+    private const int EnIDLanguage = 1;
+    private const int TrIDLanguage = 2;
+
     [DllImport("__Internal")]
     private static extern string GetLang();
 
@@ -11,28 +15,36 @@ public class ChangeLanguageController : Singleton<ChangeLanguageController>
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
         string lang = GetLang();
+
         if (lang == "ru")
         {
-            LangsList.SetLanguage(0, true);
+            LangsList.SetLanguage(RuIDLanguage, true);
             return;
         }
+
         if (lang == "en")
         {
-            LangsList.SetLanguage(1, true);
+            LangsList.SetLanguage(EnIDLanguage, true);
             return;
         }
+
         if (lang == "tr")
         {
-            LangsList.SetLanguage(2, true);
+            LangsList.SetLanguage(TrIDLanguage, true);
             return;
         }
+
 #elif UNITY_2020_1_OR_NEWER
+
         if (Application.systemLanguage == SystemLanguage.Russian)
-            LangsList.SetLanguage(0, true);
+            LangsList.SetLanguage(RuIDLanguage, true);
+
         if (Application.systemLanguage == SystemLanguage.English)
-            LangsList.SetLanguage(1, true);
+            LangsList.SetLanguage(EnIDLanguage, true);
+
         if (Application.systemLanguage == SystemLanguage.Turkish)
-            LangsList.SetLanguage(2, true);
+            LangsList.SetLanguage(TrIDLanguage, true);
+
 #endif
     }
 

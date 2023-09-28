@@ -14,44 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - _wordsKeyTranslatorText: _skin_default
-    _itemCost: 0
-    _moneyType: 2
-    _itemObject: {fileID: 1481507703513659801, guid: 1ca544762b9b6724eb3a1f527bc801b2,
+    _shopItemBuy: {fileID: -403554276086161685, guid: 1ca544762b9b6724eb3a1f527bc801b2,
       type: 3}
   - _wordsKeyTranslatorText: _skin_criminal_02
-    _itemCost: 3
-    _moneyType: 2
-    _itemObject: {fileID: 6467579504129753155, guid: cf9efd3fd30bf834182008b5bad10261,
+    _shopItemBuy: {fileID: -6193740998522174954, guid: deff048f1396f004c928127bbf0a5d7c,
       type: 3}
   - _wordsKeyTranslatorText: _skin_working
-    _itemCost: 5
-    _moneyType: 2
-    _itemObject: {fileID: 461317642086422710, guid: f5f371f8b42b76048b1d9ef1deaae9b1,
+    _shopItemBuy: {fileID: -5736998264744141972, guid: f5f371f8b42b76048b1d9ef1deaae9b1,
       type: 3}
   - _wordsKeyTranslatorText: _skin_boxer
-    _itemCost: 250
-    _moneyType: 1
-    _itemObject: {fileID: 7734866791061248806, guid: b2856c725951f264991aec716f125f5a,
+    _shopItemBuy: {fileID: 412683818661665843, guid: b2856c725951f264991aec716f125f5a,
       type: 3}
   - _wordsKeyTranslatorText: _skin_criminal_01
-    _itemCost: 500
-    _moneyType: 1
-    _itemObject: {fileID: 3993193315393898497, guid: e322888765a74f34981309713aa3a3f6,
+    _shopItemBuy: {fileID: 8264644266839799232, guid: e322888765a74f34981309713aa3a3f6,
       type: 3}
   - _wordsKeyTranslatorText: _skin_prisoner
-    _itemCost: 100
-    _moneyType: 0
-    _itemObject: {fileID: 6880881064630848927, guid: 4358eaea862f16c49beb9ea103c961a7,
+    _shopItemBuy: {fileID: -6936819439397910551, guid: 4358eaea862f16c49beb9ea103c961a7,
       type: 3}
   - _wordsKeyTranslatorText: _skin_police
-    _itemCost: 300
-    _moneyType: 0
-    _itemObject: {fileID: 7677570209084713808, guid: deff048f1396f004c928127bbf0a5d7c,
+    _shopItemBuy: {fileID: -6193740998522174954, guid: deff048f1396f004c928127bbf0a5d7c,
       type: 3}
   - _wordsKeyTranslatorText: _skin_suit
-    _itemCost: 500
-    _moneyType: 0
-    _itemObject: {fileID: 7710563780998977196, guid: 352585294f4346148826b06701183477,
+    _shopItemBuy: {fileID: 6283192589213174632, guid: 352585294f4346148826b06701183477,
       type: 3}
   _moneySprites:
   - {fileID: 21300000, guid: 695cf191664a7e5429d254d522de0040, type: 3}

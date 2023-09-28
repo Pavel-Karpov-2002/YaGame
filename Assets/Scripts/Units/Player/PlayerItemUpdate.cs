@@ -7,7 +7,7 @@ public class PlayerItemUpdate : MonoBehaviour
 
     public void SetItem(ShopItem item, int itemNum)
     {
-        if (item.ItemObject.GetComponent<Skin>() != null)
+        if (item.ShopItemBuy.GetComponent<Skin>() != null)
         {
             SetSkin(item);
             GameInformation.Instance.Information.SkinEquip = itemNum;
@@ -15,13 +15,12 @@ public class PlayerItemUpdate : MonoBehaviour
             return;
         }
 
-        if (item.ItemObject.GetComponent<Weapon>() != null)
+        if (item.ShopItemBuy.GetComponent<Weapon>() != null)
         {
             if (_hand.Weapon != null)
-            {
                 Destroy(_hand.Weapon.gameObject);
-            }
-            SetWeapon(item.ItemObject);
+
+            SetWeapon(item.ShopItemBuy.gameObject);
             GameInformation.Instance.Information.WeaponEquip = itemNum;
             GameInformation.OnInformationChange?.Invoke();
             return;
@@ -32,6 +31,7 @@ public class PlayerItemUpdate : MonoBehaviour
     {
         if (item == null)
             return;
+
         GameObject weapon = Instantiate(item);
         weapon.transform.parent = _hand.transform;
         weapon.transform.localScale = Vector3.one;
@@ -43,7 +43,7 @@ public class PlayerItemUpdate : MonoBehaviour
 
     private void SetSkin(ShopItem item)
     {
-        Skin skin = item.ItemObject.GetComponent<Skin>();
+        Skin skin = item.ShopItemBuy.GetComponent<Skin>();
         ChangeClothes(skin);
     }
 

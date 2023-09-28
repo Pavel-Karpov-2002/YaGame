@@ -3,10 +3,16 @@ using System.Runtime.InteropServices;
 
 public class LevelProgress : Singleton<LevelProgress>
 {
+    private const float CompletionThreshold = 1.0f;
+
     [DllImport("__Internal")]
     private static extern void SetToLeaderboard(int value);
 
     private int _countKillsOnLevel;
+
+    public Action OnCompletedLevel;
+
+    public int RequiredNumberOfKills { get; set; }
 
     public int CountKillsOnLevel 
     {
@@ -16,18 +22,16 @@ public class LevelProgress : Singleton<LevelProgress>
             _countKillsOnLevel = value;
             float progress = (float)_countKillsOnLevel / RequiredNumberOfKills;
             LevelProgressUI.Instance.UpdateProgressIndicator(progress);
-            if (progress >= 1)
+
+            if (progress >= CompletionThreshold)
             {
                 OnCompletedLevel?.Invoke();
-                if (GameInformation.Instance.Information.PassedLevel % 2 == 0) // кнопка для показа рекламы каждый второй уровень
+
+                if (GameInformation.Instance.Information.PassedLevel % AdvertisementController.Instance.FrequencyRewardedAdvertisement == 0)
                     AdvertisementController.Instance.ButtonReward.transform.localScale = UnityEngine.Vector3.one;
             }
         }
     }
-
-    public int RequiredNumberOfKills { get; set; }
-
-    public Action OnCompletedLevel;
 
     private void Start()
     {

@@ -1576,6 +1576,7 @@ GameObject:
   - component: {fileID: 6935144780044845409}
   - component: {fileID: 1800336673402813359}
   - component: {fileID: -1672852611487145960}
+  - component: {fileID: 6283192589213174632}
   m_Layer: 5
   m_Name: Stickman_sphere_Suit
   m_TagString: Untagged
@@ -1644,6 +1645,20 @@ MonoBehaviour:
   - {fileID: 1798177777085930689}
   - {fileID: 3953936488864566485}
   - {fileID: 6204942669960466098}
+--- !u!114 &6283192589213174632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7710563780998977196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d785e604a1cb3498c41d41cacd4604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneySprites: {fileID: 21300000, guid: 695cf191664a7e5429d254d522de0040, type: 3}
+  _itemCost: 700
 --- !u!1 &7735775831640746157
 GameObject:
   m_ObjectHideFlags: 0

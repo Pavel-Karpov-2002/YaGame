@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PointsTimer : Singleton<PointsTimer>
 {
+    private const int DeafaultOneTick = 1;
 
     private float _time;
     private float _startTime;
@@ -32,13 +33,15 @@ public class PointsTimer : Singleton<PointsTimer>
 
     private IEnumerator TimerUpdate()
     {
-        yield return new WaitForSeconds(1);
-        _time -= 1;
+        yield return new WaitForSeconds(DeafaultOneTick);
+        _time -= DeafaultOneTick;
+
         if (_time <= 0)
         {
             OnTimerUpdate?.Invoke(0);
             yield break;
         }
+
         OnTimerUpdate?.Invoke(GetPercentOfTotalTime());
         _timerCoroutine = StartCoroutine(TimerUpdate());
     }

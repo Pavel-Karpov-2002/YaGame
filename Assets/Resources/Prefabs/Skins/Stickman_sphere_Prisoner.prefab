@@ -1217,6 +1217,7 @@ GameObject:
   - component: {fileID: 1301215337264618333}
   - component: {fileID: 3483715217326060393}
   - component: {fileID: -6204224890863483811}
+  - component: {fileID: -6936819439397910551}
   m_Layer: 5
   m_Name: Stickman_sphere_Prisoner
   m_TagString: Untagged
@@ -1281,6 +1282,20 @@ MonoBehaviour:
   - {fileID: 8518845426219415167}
   - {fileID: 7196430929174319368}
   - {fileID: 3439267267456251137}
+--- !u!114 &-6936819439397910551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6880881064630848927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d785e604a1cb3498c41d41cacd4604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneySprites: {fileID: 21300000, guid: 695cf191664a7e5429d254d522de0040, type: 3}
+  _itemCost: 250
 --- !u!1 &6932710573156573867
 GameObject:
   m_ObjectHideFlags: 0

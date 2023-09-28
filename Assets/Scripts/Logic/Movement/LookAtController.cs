@@ -30,15 +30,19 @@ public class LookAtController : MonoBehaviour
     {
         if (!this.enabled)
             return;
+
         if ((1 << other.gameObject.layer) != _layerMask.value)
             return;
+
         if (_lookAt == Vector3.zero)
             _lookAt = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
+
         if (_triggerObject != null && _tween != null && _tween.active)
         {
             _lookAt = new Vector3(other.transform.position.x, transform.position.y, other.transform.position.z);
             return;
         }
+
         Quaternion targetRotation = Quaternion.LookRotation(_lookAt - transform.position);
         _tween = transform.DORotateQuaternion(targetRotation * Quaternion.Euler(_offset), _directionTime);
         _triggerObject = other.gameObject;

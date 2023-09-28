@@ -14,19 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - _wordsKeyTranslatorText: _weapon_gun
-    _itemCost: 0
-    _moneyType: 1
-    _itemObject: {fileID: 9138899167454349965, guid: e6a17f64274387d4492791cb0655c492,
+    _shopItemBuy: {fileID: -9099563300828517773, guid: e6a17f64274387d4492791cb0655c492,
       type: 3}
   - _wordsKeyTranslatorText: _weapon_m16
-    _itemCost: 650
-    _moneyType: 1
-    _itemObject: {fileID: 4842061898309870296, guid: b7b56afc506b6394795851100c5d48bc,
+    _shopItemBuy: {fileID: -1005182828345282161, guid: b7b56afc506b6394795851100c5d48bc,
       type: 3}
   - _wordsKeyTranslatorText: _weapon_ak47
-    _itemCost: 1150
-    _moneyType: 1
-    _itemObject: {fileID: 6036677085639636068, guid: 9ad8da63155f1594483d2cd60f40f8da,
+    _shopItemBuy: {fileID: 7640355808818541548, guid: 9ad8da63155f1594483d2cd60f40f8da,
       type: 3}
   _moneySprites:
   - {fileID: 21300000, guid: 695cf191664a7e5429d254d522de0040, type: 3}

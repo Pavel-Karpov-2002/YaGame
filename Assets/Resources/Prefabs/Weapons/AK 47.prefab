@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 5243994966394787249}
   - component: {fileID: 3183758608655424480}
   - component: {fileID: 6799449820649410730}
+  - component: {fileID: 7640355808818541548}
   m_Layer: 5
   m_Name: AK 47
   m_TagString: Untagged
@@ -778,6 +779,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7640355808818541548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6036677085639636068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cce8cc0a8a22242b4d08dc5c464b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneySprites: {fileID: 21300000, guid: 9e6305042d1199d41b67a5b83005acc6, type: 3}
+  _itemCost: 1150
 --- !u!1 &6329271856143281501
 GameObject:
   m_ObjectHideFlags: 0

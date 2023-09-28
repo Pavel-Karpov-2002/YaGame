@@ -5,14 +5,10 @@ using UnityEngine;
 public class ShopItem
 {
     [SerializeField] private string _wordsKeyTranslatorText;
-    [SerializeField] private int _itemCost;
-    [SerializeField] private ItemMoneyType _moneyType;
-    [SerializeField] private GameObject _itemObject;
+    [SerializeField] private ShopItemBuy _shopItemBuy;
 
     public string WordsKeyTranslatorText => _wordsKeyTranslatorText;
-    public int ItemCost => _itemCost;
-    public ItemMoneyType MoneyType => _moneyType;
-    public GameObject ItemObject => _itemObject;
+    public ShopItemBuy ShopItemBuy => _shopItemBuy;
 }
 
 public enum ItemMoneyType

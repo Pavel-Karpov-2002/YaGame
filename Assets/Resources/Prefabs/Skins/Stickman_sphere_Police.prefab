@@ -1286,6 +1286,7 @@ GameObject:
   - component: {fileID: 6101817152334231864}
   - component: {fileID: 209419719499382278}
   - component: {fileID: -5595668883920995951}
+  - component: {fileID: -6193740998522174954}
   m_Layer: 5
   m_Name: Stickman_sphere_Police
   m_TagString: Untagged
@@ -1358,6 +1359,20 @@ MonoBehaviour:
   - {fileID: 3461266588343508207}
   - {fileID: 8381957445510866716}
   - {fileID: 5402240020175319122}
+--- !u!114 &-6193740998522174954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677570209084713808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0d785e604a1cb3498c41d41cacd4604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneySprites: {fileID: 21300000, guid: 695cf191664a7e5429d254d522de0040, type: 3}
+  _itemCost: 450
 --- !u!1 &7895334820297286283
 GameObject:
   m_ObjectHideFlags: 0

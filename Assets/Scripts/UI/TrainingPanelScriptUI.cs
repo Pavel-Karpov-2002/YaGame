@@ -7,10 +7,9 @@ public class TrainingPanelScriptUI : MonoBehaviour
     private void Start()
     {
         StartGameController.Instance.OnStartGame += ClosePanel;
+
         if (PlayerPrefs.HasKey(_textKey.key))
-        {
             gameObject.SetActive(false);
-        }
     }
 
     public void SaveIsClosedPanel()

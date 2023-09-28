@@ -24,7 +24,7 @@ public class ProtectiveWall : Unit
 
     public override void Die()
     {
-        if (Health <= 0)
+        if (Health <= MinHealth)
             gameObject.SetActive(false);
     }
 

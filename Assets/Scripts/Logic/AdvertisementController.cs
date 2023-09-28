@@ -1,12 +1,16 @@
 ﻿using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class AdvertisementController : Singleton<AdvertisementController>
 {
+    private const float StopGameTimeScale = 0;
+    private const float DefaulttGameTimeScale = 1;
+
     [SerializeField] private Button _buttonRewardVideo;
     [SerializeField] private Button _buttonInternalVideo;
+    [SerializeField] private int _frequencyInternalAdvertisement = 3;
+    [SerializeField] private int _frequencyRewardedAdvertisement = 2;
 
     [DllImport("__Internal")]
     public static extern void ShowInternal();
@@ -14,9 +18,12 @@ public class AdvertisementController : Singleton<AdvertisementController>
     public static extern void ShowRewardedVideo();
 
     public Button ButtonReward => _buttonRewardVideo;
+    public int FrequencyInternalAdvertisement => _frequencyInternalAdvertisement;
+    public int FrequencyRewardedAdvertisement => _frequencyRewardedAdvertisement;
 
-    private bool isViewed;
-    private bool isSetAudioListener;
+    private bool _isViewed;
+    private bool _isSetAudioListener;
+    private int _equalizer = 0;
 
     protected override void Awake()
     {
@@ -24,9 +31,10 @@ public class AdvertisementController : Singleton<AdvertisementController>
         _buttonRewardVideo.onClick.AddListener(() => RewardedVideo());
         _buttonInternalVideo.onClick.AddListener(() =>
         {
-            if (GameInformation.Instance.Information.PassedLevel % 3 == 0 && !isViewed) // показывать рекламу каждый третий уровень при нажатии
+
+            if (GameInformation.Instance.Information.PassedLevel % _frequencyInternalAdvertisement == _equalizer && !_isViewed)
             {
-                isViewed = true;
+                _isViewed = true;
                 Internal();
             }
         });
@@ -34,7 +42,7 @@ public class AdvertisementController : Singleton<AdvertisementController>
 
     private void Start()
     {
-        StartGameController.Instance.OnStartGame += () => isViewed = false;
+        StartGameController.Instance.OnStartGame += () => _isViewed = false;
     }
 
     public void Internal()
@@ -52,25 +60,26 @@ public class AdvertisementController : Singleton<AdvertisementController>
 
     private void StopLevel()
     {
-        Time.timeScale = 0;
-        if (AudioListener.volume > 0)
+        Time.timeScale = StopGameTimeScale;
+
+        if (AudioListener.volume > AudioListenerController.Instance.MinVolume)
         {
-            isSetAudioListener = true;
-            AudioListenerController.Instance.SetAudioListerner(0);
+            _isSetAudioListener = true;
+            AudioListenerController.Instance.SetAudioListerner(AudioListenerController.Instance.MinVolume);
         }
     }
 
     public void CloseAdvertisement()
     {
-        Time.timeScale = 1;
-        if (isSetAudioListener)
+        Time.timeScale = DefaulttGameTimeScale;
+
+        if (_isSetAudioListener)
         {
-            AudioListenerController.Instance.SetAudioListerner(1);
-            isSetAudioListener = false;
+            AudioListenerController.Instance.SetAudioListerner(AudioListenerController.Instance.MaxVolume);
+            _isSetAudioListener = false;
         }
     }
-
-    // количество рекламной валюты настраивается в jslib документе в вызове функции 
+ 
     public void AddGems(int value)
     {
         GameInformation.Instance.Information.Gems += value;
@@ -79,6 +88,6 @@ public class AdvertisementController : Singleton<AdvertisementController>
 
     private void OnDestroy()
     {
-        StartGameController.Instance.OnStartGame -= () => isViewed = false;
+        StartGameController.Instance.OnStartGame -= () => _isViewed = false;
     }
 }

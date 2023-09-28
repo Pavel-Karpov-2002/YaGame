@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class GameParametersLoaderUI : Singleton<GameParametersLoaderUI>
 {
+    private const int DefaultMinStack = 0;
+    private const int DefaultPointOnStack = 1;
+
     [SerializeField] private Image _loaderImage;
     
     private int _stackLoader;
@@ -14,15 +17,16 @@ public class GameParametersLoaderUI : Singleton<GameParametersLoaderUI>
 
     public void AddStack()
     {
-        _stackLoader += 1;
+        _stackLoader += DefaultPointOnStack;
         Loading(true);
     }
 
     public void TakeStack()
     {
-        if (_stackLoader > 0)
-            _stackLoader -= 1;
-        if (_stackLoader == 0)
+        if (_stackLoader > DefaultMinStack)
+            _stackLoader -= DefaultPointOnStack;
+
+        if (_stackLoader == DefaultMinStack)
             Loading(false);
     }
 }

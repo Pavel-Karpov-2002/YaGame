@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class UpgradeUICard : MonoBehaviour
 {
+    public const int DeafaultNumOfDecimalPlaces = 2;
+
     [SerializeField] private TextMeshProUGUI _infoText;
     [SerializeField] private UpgradeTypeParameters _type;
     [SerializeField] private Upgrade _cardInformation;
@@ -24,7 +26,7 @@ public class UpgradeUICard : MonoBehaviour
             _infoText.text = _cardInformation.LastValue + " >> " + (int)Sum();
             return;
         }
-        _infoText.text = System.Math.Round(System.Convert.ToDouble(_cardInformation.LastValue), 2) + " >> " + System.Math.Round(Sum(), 2);
+        _infoText.text = System.Math.Round(System.Convert.ToDouble(_cardInformation.LastValue), DeafaultNumOfDecimalPlaces) + " >> " + System.Math.Round(Sum(), DeafaultNumOfDecimalPlaces);
     }
 
     private double Sum()

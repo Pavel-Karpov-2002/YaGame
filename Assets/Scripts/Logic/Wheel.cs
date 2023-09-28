@@ -4,7 +4,6 @@ public class Wheel : MonoBehaviour
 {
     [SerializeField] private float _speed = 1;
 
-    private Vector3 _rotor = Vector3.left;
     private bool _isRotationEnable;
 
     private void Start()

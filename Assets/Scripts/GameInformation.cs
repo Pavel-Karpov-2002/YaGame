@@ -14,7 +14,6 @@ public class Information
     [SerializeField] private int _skinEquip;
     [SerializeField] private List<int> _weaponsBought = new List<int>() { 0 };
     [SerializeField] private List<int> _skinsBought = new List<int>() { 0 };
-    // Id Upgrade, level upgrade 
     [SerializeField] private List<int> _upgradesLevel = new List<int>() { 0, 0, 0 };
 
     public int Golds
@@ -95,7 +94,6 @@ public class Information
         }
     }
 
-    // Id Upgrade, level upgrade 
     public List<int> UpgradesLevel
     {
         get { return _upgradesLevel; }

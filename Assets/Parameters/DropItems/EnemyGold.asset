@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d213c7d8458dda4289a03e7c477d536, type: 3}
-  m_Name: Gold
+  m_Name: EnemyGold
   m_EditorClassIdentifier: 
   _itemPrefab: {fileID: 382320677851322325, guid: a0853fe9ab661e241b5f9711f5f4b07d,
     type: 3}
+  _minDrops: 5
+  _maxDrops: 10

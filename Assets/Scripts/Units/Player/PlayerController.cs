@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : Unit
 {
-    [Header("Time to raise items after the end of the level")]
     [SerializeField] private float _timeBeforLiftingItems;
     [SerializeField] private PlayerParameters _playerParameters;
     [SerializeField] private PickUpItemController _pickUpItem;
@@ -28,6 +27,7 @@ public class PlayerController : Unit
         {
             if (_skin == null)
                 _skin = GetComponentInChildren<Skin>();
+
             return _skin;
         }
     }
@@ -47,13 +47,15 @@ public class PlayerController : Unit
 
     public override void Die()
     {
-        if (Health > 0)
+        if (Health > MinHealth)
             return;
+
         if (_ragdollController = Skin.RagdollController)
         {
             _ragdollController.EnablePhysics();
             SetDeathLayer();
         }
+
         _lookAtController.Tween.Kill();
         _lookAtController.enabled = false;
         StartCoroutine(RestartScene());
@@ -65,6 +67,7 @@ public class PlayerController : Unit
     private void SetDeathLayer()
     {
         gameObject.layer = _deathLayer;
+
         foreach (var rb in _ragdollController.RagdollElements)
         {
             rb.gameObject.layer = _deathLayer;
@@ -96,7 +99,7 @@ public class PlayerController : Unit
     private IEnumerator PickUpAllItems()
     {
         yield return new WaitForSeconds(_timeBeforLiftingItems);
-        _pickUpItem.MagniteRange = 100;
+        _pickUpItem.MagniteRange = PickUpItemController.DefaultMagniteRange;
     }
 
     protected override void OnDestroy()

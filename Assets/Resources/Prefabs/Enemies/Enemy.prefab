@@ -236,7 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914aabdb2b36d8348acae963e2ddaa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangeDrop: 3
+  _maxRangeDrop: 3
+  _minRangeDrop: 0
   _timeForStopKinematic: 3
 --- !u!114 &3618466196957971886
 MonoBehaviour:
@@ -2618,6 +2619,7 @@ MonoBehaviour:
   _sphereCollider: {fileID: 193629519242680042}
   _directionTime: 0.3
   _minTriggerDistance: 50
+  _offset: {x: 0, y: 0, z: 0}
 --- !u!1 &6334339356299718241
 GameObject:
   m_ObjectHideFlags: 0

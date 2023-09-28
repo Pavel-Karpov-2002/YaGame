@@ -939,6 +939,7 @@ GameObject:
   - component: {fileID: 1481507703513163257}
   - component: {fileID: 1481507703506258479}
   - component: {fileID: 5348592441463558356}
+  - component: {fileID: -403554276086161685}
   m_Layer: 5
   m_Name: Stickman_sphere_Default
   m_TagString: Untagged
@@ -1013,6 +1014,20 @@ MonoBehaviour:
   - {fileID: 5147079730190948749}
   - {fileID: 6857322943169484135}
   - {fileID: 1572623069699680834}
+--- !u!114 &-403554276086161685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481507703513659801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cce8cc0a8a22242b4d08dc5c464b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneySprites: {fileID: 21300000, guid: 9e6305042d1199d41b67a5b83005acc6, type: 3}
+  _itemCost: 0
 --- !u!1 &1481507703513659803
 GameObject:
   m_ObjectHideFlags: 0

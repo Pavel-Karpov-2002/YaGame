@@ -8,5 +8,4 @@ public class ShopParameters : ScriptableObject
     [SerializeField] private List<Sprite> _moneySprites;
 
     public List<ShopItem> Items => _items;
-    public List<Sprite> MoneySprites => _moneySprites;
 }

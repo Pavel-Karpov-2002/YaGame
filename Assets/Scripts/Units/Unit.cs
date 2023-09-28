@@ -4,11 +4,13 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
     [SerializeField] private UnitParameters _unitParameters;
+    [SerializeField] private int _minHealth = 0;
 
     private int _staticHealthParameter;
     private int _health;
     private float _speed;
 
+    protected int MinHealth => _minHealth;
     public int StaticHealthParameter => _staticHealthParameter;
     public UnitParameters UnitParameters => _unitParameters;
 
@@ -45,8 +47,9 @@ public class Unit : MonoBehaviour
 
     public virtual void TakeDamage(int amount)
     {
-        if (_health - amount < 0)
+        if (_health - amount < _minHealth)
             return;
+
         Health -= amount;
     }
 
@@ -70,8 +73,9 @@ public class Unit : MonoBehaviour
 
     public virtual void Die()
     {
-        if (Health > 0)
+        if (Health > _minHealth)
             return;
+
         OnDeath?.Invoke();
         Destroy(gameObject);
     }

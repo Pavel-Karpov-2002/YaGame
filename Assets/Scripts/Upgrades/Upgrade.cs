@@ -3,17 +3,19 @@ using UnityEngine;
 
 public class Upgrade : MonoBehaviour
 {
+    private const int DeafultUpgradeLevel = 0;
+    private const int MinimumUpgradePointsRequired = 0;
+    private const int UpgradeIncrement = 1;
+
     [SerializeField] private UpgradesParameters _upgradesParameters;
     [SerializeField] private Unit _unitUpgrade;
 
-    public object Parameters { get; protected set; }
     public Unit UnitUpgrade => _unitUpgrade;
-    public string LastValue { get; set; }
-    public int CostUpgrade { get; set; }
-    
-    // Обязательно переуказать ID апгрейда
-    public int UpgradeId { get; set; }
-    public int Level { get; set; }
+    public int CostUpgrade { get; private set; }
+    public object Parameters { get; protected set; }
+    public string LastValue { get; protected set; }
+    public int UpgradeId { get; protected set; }
+    public int Level { get; protected set; }
 
     public Action OnActivate;
 
@@ -25,23 +27,26 @@ public class Upgrade : MonoBehaviour
         {
             for (int i = GameInformation.Instance.Information.UpgradesLevel.Count - 1; i < UpgradeId; i++)
             {
-                GameInformation.Instance.Information.UpgradesLevel.Add(0);
+                GameInformation.Instance.Information.UpgradesLevel.Add(DeafultUpgradeLevel);
             }
+
             GameInformation.OnInformationChange?.Invoke();
         }
-        ResetUpgradesPointsController.OnReset += ResetLevel;
-        ResetUpgradesPointsController.OnReset += SetUpgradeLevel;
+        ResetUpgradesPointsController.ResetEvent += ResetLevel;
+        ResetUpgradesPointsController.ResetEvent += SetUpgradeLevel;
     }
 
     protected bool UpLevel()
     {
-        bool isLiquid = GameInformation.Instance.Information.UpgradePoints - CostUpgrade >= 0;
+        bool isLiquid = GameInformation.Instance.Information.UpgradePoints - CostUpgrade >= MinimumUpgradePointsRequired;
+
         if (isLiquid)
         {
-            GameInformation.Instance.Information.UpgradesLevel[UpgradeId] += 1;
+            GameInformation.Instance.Information.UpgradesLevel[UpgradeId] += UpgradeIncrement;
             GameInformation.Instance.Information.UpgradePoints -= CostUpgrade;
             GameInformation.OnInformationChange?.Invoke();
         }
+
         return isLiquid;
     }
 
@@ -56,12 +61,12 @@ public class Upgrade : MonoBehaviour
 
     protected void ResetLevel()
     {
-        Level = 1;
+        Level = DeafultUpgradeLevel;
     }
 
     protected virtual void OnDestroy()
     {
-        ResetUpgradesPointsController.OnReset -= ResetLevel;
-        ResetUpgradesPointsController.OnReset -= SetUpgradeLevel;
+        ResetUpgradesPointsController.ResetEvent -= ResetLevel;
+        ResetUpgradesPointsController.ResetEvent -= SetUpgradeLevel;
     }
 }

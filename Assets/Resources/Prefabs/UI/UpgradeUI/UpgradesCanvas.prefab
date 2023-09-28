@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 1.0583564
+  m_AspectRatio: 1.0584527
 --- !u!1 &940353586562951634
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,9 +618,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2996605178316202088}
-        m_TargetAssemblyTypeName: RefershUpgradesPointsController, Assembly-CSharp
+        m_TargetAssemblyTypeName: ResetUpgradesPointsController, Assembly-CSharp
         m_MethodName: ResetPoints
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

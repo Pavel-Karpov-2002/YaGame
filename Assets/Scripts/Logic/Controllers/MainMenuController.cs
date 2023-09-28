@@ -23,6 +23,7 @@ public class MainMenuController : Singleton<MainMenuController>
             {
                 GuestLogin();
             }
+
             _mainMenuCanvas.SetActive(false);
         }
     }
@@ -47,6 +48,7 @@ public class MainMenuController : Singleton<MainMenuController>
             GameInformation.Instance.SetInformationFromJSON(JsonUtility.ToJson(new Information()));
             GameInformation.Instance.Save();
         }
+
         GameInformation.Instance.SetInformationFromJSON(PlayerPrefs.GetString("information"));
         GameInformation.OnInformationChange += GameInformation.Instance.Save;
         isStarted = true;

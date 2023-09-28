@@ -786,6 +786,7 @@ GameObject:
   - component: {fileID: 8113081845171172165}
   - component: {fileID: 7309584549930570820}
   - component: {fileID: 4910016498474780067}
+  - component: {fileID: 8264644266839799232}
   m_Layer: 5
   m_Name: Stickman_sphere_Criminal_01
   m_TagString: Untagged
@@ -854,6 +855,20 @@ MonoBehaviour:
   - {fileID: 5634055115343853211}
   - {fileID: 7674165995886979973}
   - {fileID: 6890979216232283626}
+--- !u!114 &8264644266839799232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3993193315393898497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cce8cc0a8a22242b4d08dc5c464b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneySprites: {fileID: 21300000, guid: 9e6305042d1199d41b67a5b83005acc6, type: 3}
+  _itemCost: 350
 --- !u!1 &4361620075625434404
 GameObject:
   m_ObjectHideFlags: 0

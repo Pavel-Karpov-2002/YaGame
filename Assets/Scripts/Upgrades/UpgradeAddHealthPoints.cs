@@ -28,6 +28,7 @@ public class UpgradeAddHealthPoints : Upgrade
             UnitUpgrade.SetStaticHealth(UnitUpgrade.Health + Convert.ToInt32(Parameters));
             OnActivate?.Invoke();
         }
+
         base.Activate();
     }
 

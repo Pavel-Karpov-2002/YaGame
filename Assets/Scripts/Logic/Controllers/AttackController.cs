@@ -12,6 +12,7 @@ public class AttackController : MonoBehaviour
 
     private Coroutine _attackCoroutine;
     private Collider[] _enemyColldiers;
+    private int _minTriggerColliders = 0;
 
     private void Awake()
     {
@@ -22,8 +23,10 @@ public class AttackController : MonoBehaviour
     {
         if (_attackCoroutine != null)
             return;
+
         _enemyColldiers = Physics.OverlapBox(_triggerPos.position, _triggerSize, Quaternion.identity, _enemyMask);
-        if (_enemyColldiers.Length > 0.5f)
+
+        if (_enemyColldiers.Length > _minTriggerColliders)
             _attackCoroutine = StartCoroutine(AttackCoroutine());
     }
 
@@ -31,8 +34,10 @@ public class AttackController : MonoBehaviour
     {
         IsAttack = true;
         yield return new WaitForSeconds(_hand.Weapon.TimerBulletDelay);
+
         if (_hand.Weapon is WeaponHands)
             ((WeaponHands)_hand.Weapon).EnemyColliders = _enemyColldiers;
+
         _hand.Weapon.Attack();
         IsAttack = false;
         _attackCoroutine = null;

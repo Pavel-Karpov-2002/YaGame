@@ -25,6 +25,7 @@ public class AIMoveTo : MonoBehaviour, IMove
     {
         if (!_agent.isOnOffMeshLink)
             _agent.SetDestination(PlayerMovement.Instance.transform.position);
+
         yield return new WaitForSeconds(_trackingUpdateTime);
         _goToCoroutine = StartCoroutine(GoTo());
     }
